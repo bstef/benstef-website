@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ben Stef | Senior Infrastructure Engineer</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --card: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-2: #22d3ee;
+      --border: #1f2933;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #020617; color: var(--text); line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+
+    header { position: relative; display: grid; gap: 2.5rem; align-items: center; margin-bottom: 5rem; padding: 5rem 2rem; border-radius: 20px; background: linear-gradient(180deg, rgba(2,6,23,0.85), rgba(2,6,23,0.95)), url('bobby-stef-tp14k-3OOhg-unsplash.jpg') center/cover no-repeat; background-attachment: fixed; box-shadow: 0 30px 60px rgba(0,0,0,0.45); }
+
+    .intro h1 { font-size: 3rem; line-height: 1.1; margin: 0 0 1rem 0; letter-spacing: -0.02em; }
+    .intro h2 { font-weight: 500; color: var(--accent-2); margin: 0 0 1.5rem 0; }
+    .intro p { max-width: 720px; color: var(--muted); font-size: 1.05rem; margin-top: 1.5rem; }
+
+    .expertise-table table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; background: rgba(2,6,23,0.7); backdrop-filter: blur(6px); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .expertise-table td { padding: 0.9rem 1rem; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); text-align: center; color: var(--text); font-weight: 500; }
+    .expertise-table tr:last-child td { border-bottom: none; }
+    .expertise-table td:last-child { border-right: none; }
+
+    .focus-line { margin-top: 1.25rem; font-size: 0.95rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+
+    .meta { margin-top: 1.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.95rem; }
+    .meta span { color: var(--muted); }
+    .card { background: linear-gradient(180deg, #020617, #020617cc); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.35); }
+
+    section { margin-bottom: 4rem; }
+    section h3 { font-size: 1.6rem; margin-bottom: 1.5rem; letter-spacing: -0.01em; }
+
+    .job { margin-bottom: 2.5rem; }
+    .job h4 { margin: 0; font-size: 1.15rem; }
+    .job span { color: var(--muted); font-size: 0.9rem; }
+    .job ul { margin: 0.75rem 0 0 1.1rem; padding: 0; }
+    .job li { margin-bottom: 0.4rem; color: var(--muted); }
+
+    footer { border-top: 1px solid var(--border); padding-top: 2rem; text-align: center; color: var(--muted); font-size: 0.9rem; background: repeating-linear-gradient(45deg, #020617, #020617 10px, #030a1a 10px, #030a1a 20px); }
+
+    @media (max-width: 900px) { header { grid-template-columns: 1fr; } .intro h1 { font-size: 2.4rem; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="intro">
+        <h1>Ben Stef</h1>
+        <h2>Senior Infrastructure Engineer</h2>
+        <p>Systems and platform engineer with 19+ years of experience supporting large-scale enterprise environments. Specialized in infrastructure, observability, SaaS platforms, cloud, and eDiscovery systems. Known for pragmatic problem‑solving, clear documentation, and cross‑functional collaboration.</p>
+        <div class="expertise-table">
+          <table>
+            <tr><td>Infrastructure & Systems</td><td>Cloud (AWS · Azure · GCP)</td><td>Terraform & Automation</td></tr>
+            <tr><td>Observability (Datadog)</td><td>Linux · Windows · macOS</td><td>Networking (LAN/WAN/VPN)</td></tr>
+            <tr><td>eDiscovery Platforms</td><td>SaaS Architecture</td><td>Root Cause Analysis</td></tr>
+          </table>
+        </div>
+        <div class="focus-line">Platforms · Observability · SaaS · Cloud Infrastructure</div>
+        <div class="meta">
+          <span>📍 New Jersey, USA</span>
+          <span>📧 benjaminstef@gmail.com</span>
+          <span>🔗 <a href="https://www.linkedin.com/in/bstef/" target="_blank">LinkedIn</a></span>
+          <span>🌐 <a href="https://benstef.com" target="_blank">benstef.com</a></span>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h3>Projects</h3>
+      <div class="card">
+        <table class="expertise-table">
+          <tr><td>Enterprise Collaboration Platforms</td><td>Zoom · Teams · Webex at 300k+ scale</td><td>Architecture & Rollout</td></tr>
+          <tr><td>Terraform AWS Infrastructure</td><td>IaC · Secure Patterns</td><td>Automation</td></tr>
+          <tr><td>Datadog Integrations</td><td>600+ Integrations</td><td>Observability</td></tr>
+          <tr><td>eDiscovery Platforms</td><td>Relativity · Brainspace · Nuix</td><td>High Availability</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h3>Professional Experience</h3>
+      <div class="job">
+        <h4>JP Morgan — Senior Infrastructure Engineer</h4>
+        <span>May 2024 – Present · Jersey City, NJ</span>
+        <ul><li>Support collaboration platforms for ~340,000 employees globally.</li><li>Design and implement SaaS solutions including Zoom, Teams, and Webex.</li><li>Develop and maintain Terraform infrastructure on AWS.</li><li>Collaborate with product managers and cross‑functional engineering teams.</li><li>Emphasis on secure design, documentation, and lifecycle ownership.</li></ul>
+      </div>
+      <div class="job">
+        <h4>Datadog — Senior Technical Solutions Engineer</h4>
+        <span>Jan 2023 – Apr 2024 · New York, NY</span>
+        <ul><li>Provided deep technical support for Datadog customers across cloud and on‑prem environments.</li><li>Specialized in Datadog Agent integrations (600+ supported technologies).</li><li>Worked closely with engineering via Jira escalations and feature requests.</li><li>Created sandbox environments and authored internal and external documentation.</li><li>Led troubleshooting sessions and mentored junior engineers.</li></ul>
+      </div>
+      <div class="job">
+        <h4>Consilio LLC — Application Support Engineer</h4>
+        <span>Jan 2020 – Dec 2022 · New York, NY</span>
+        <ul><li>Supported Relativity, Brainspace, Venio, LAW, and related eDiscovery platforms.</li><li>Escalation point for performance, workflow, and infrastructure issues.</li><li>Managed Zoom environment policies and domain registrar services.</li><li>Partnered with InfoSec on SOC2 audits and security remediation.</li></ul>
+      </div>
+    </section>
+
+    <section>
+      <h3>Education & Certifications</h3>
+      <div class="card">
+        <ul><li><strong>University of Illinois at Chicago</strong> — Electrical Engineering (BS), Economics (Minor)</li><li>CCNA · Dell Storage Architect (Equallogic, Compellent)</li><li>Brainspace Certified Administrator</li><li>Brent Ozar SQL Performance Training</li></ul>
+      </div>
+    </section>
+
+    <section>
+      <h3>Technology Stack</h3>
+      <div class="card">
+        <p><strong>Systems:</strong> Windows, Linux, macOS, VMware, Hyper‑V</p>
+        <p><strong>Cloud:</strong> AWS, Azure, GCP, Microsoft 365</p>
+        <p><strong>Monitoring:</strong> Datadog, Grafana, Splunk, Zabbix</p>
+        <p><strong>Web:</strong> IIS, Apache, WordPress, Drupal, Squarespace</p>
+        <p><strong>Hardware:</strong> Dell, NetApp, IBM, HP, Cisco</p>
+      </div>
+    </section>
+
+    <footer>© 2026 Ben Stef · Built with clean HTML & modern CSS</footer>
+  </div>
+</body>
+</html>
