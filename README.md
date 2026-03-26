@@ -4,7 +4,7 @@ Personal resume site for Ben Stef, Senior Infrastructure Engineer. Built with pl
 
 🔗 [benstef.com](https://benstef.com)
 
-![Site preview](website-screenshot.png)
+![Site preview](assets/website-screenshot.png)
 
 ---
 
@@ -21,9 +21,12 @@ Personal resume site for Ben Stef, Senior Infrastructure Engineer. Built with pl
 
 ```
 index.html                  # Primary production page
-favicon.ico                 # Multi-size favicon (16/32/48px)
-favicon.png                 # Apple touch icon (180px)
 Ben Stef Resume.pdf         # Downloadable resume
+assets/                     # Images and icons
+  bobby-stef-tp14k-3OOhg-unsplash.jpg  # Hero background photo
+  favicon.ico               # Multi-size favicon (16/32/48px)
+  favicon.png               # Apple touch icon (180px)
+  website-screenshot.png    # README preview screenshot
 archive/                    # Alternate design variants (not in use)
   chatgpt-index.html
   claude-initial.index.html
