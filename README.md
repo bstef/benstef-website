@@ -4,6 +4,8 @@ Personal resume site for Ben Stef, Senior Infrastructure Engineer. Built with pl
 
 🔗 [benstef.com](https://benstef.com)
 
+![Site preview](website-screenshot.png)
+
 ---
 
 ## Features
