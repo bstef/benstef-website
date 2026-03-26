@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume — Ben Stef</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f6f8;
+        }
+
+        /* Top bar */
+        .topbar {
+            background: #2c3e50;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .topbar a.back {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .topbar a.back:hover {
+            color: white;
+        }
+
+        .topbar-title {
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .topbar-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-1px);
+        }
+
+        .btn svg {
+            width: 15px;
+            height: 15px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* Resume card */
+        .resume-wrapper {
+            max-width: 860px;
+            margin: 36px auto;
+            padding: 0 20px 60px;
+        }
+
+        .resume-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        /* Resume header */
+        .resume-header {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 48px 36px;
+        }
+
+        .resume-header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .resume-header .resume-title {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 20px;
+        }
+
+        .resume-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            font-size: 0.875rem;
+        }
+
+        .resume-contact a,
+        .resume-contact span {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .resume-contact a:hover {
+            color: white;
+        }
+
+        .resume-contact svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* Resume body */
+        .resume-body {
+            padding: 40px 48px;
+        }
+
+        .resume-section {
+            margin-bottom: 36px;
+        }
+
+        .resume-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-heading {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #3498db;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e8f4fd;
+        }
+
+        /* Summary */
+        .resume-summary p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Experience */
+        .job {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .job:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 4px;
+        }
+
+        .job-company {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .job-date {
+            font-size: 0.82rem;
+            color: #7f8c8d;
+            font-style: italic;
+            white-space: nowrap;
+        }
+
+        .job-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .job ul {
+            margin-left: 18px;
+        }
+
+        .job li {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 6px;
+        }
+
+        .job-achievement {
+            margin-top: 12px;
+            background: #f8f9fa;
+            border-left: 3px solid #3498db;
+            padding: 10px 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.875rem;
+            color: #555;
+        }
+
+        .job-achievement strong {
+            color: #2c3e50;
+        }
+
+        /* Skills grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 14px 16px;
+            border-radius: 8px;
+            border-left: 3px solid #3498db;
+        }
+
+        .skill-category h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #2c3e50;
+            margin-bottom: 6px;
+        }
+
+        .skill-category p {
+            font-size: 0.875rem;
+            color: #555;
+        }
+
+        /* Two-column layout for education */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .edu-block h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .edu-block p, .edu-block li {
+            font-size: 0.875rem;
+            color: #555;
+        }
+
+        .edu-block ul {
+            margin-left: 16px;
+            margin-top: 6px;
+        }
+
+        .edu-block li {
+            margin-bottom: 4px;
+        }
+
+        .achievement-box {
+            margin-top: 20px;
+            background: #f8f9fa;
+            border-left: 3px solid #f39c12;
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .achievement-box h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .achievement-box p {
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        /* Print styles */
+        @media print {
+            .topbar { display: none; }
+            body { background: white; }
+            .resume-wrapper { margin: 0; padding: 0; }
+            .resume-card { box-shadow: none; border-radius: 0; }
+            .resume-header { background: #2c3e50 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+
+        @media (max-width: 640px) {
+            .resume-header, .resume-body { padding: 28px 24px; }
+            .resume-header h1 { font-size: 1.8rem; }
+            .edu-grid { grid-template-columns: 1fr; }
+            .job-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="topbar">
+        <div class="topbar-left">
+            <a href="/" class="back">
+                <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                Back
+            </a>
+            <span class="topbar-title">Ben Stef — Resume</span>
+        </div>
+        <div class="topbar-actions">
+            <a href="/resume/Ben%20Stef%20Resume.pdf" download class="btn btn-primary">
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Download PDF
+            </a>
+        </div>
+    </div>
+
+    <div class="resume-wrapper">
+        <div class="resume-card">
+
+            <div class="resume-header">
+                <h1>Ben Stef</h1>
+                <p class="resume-title">Senior Infrastructure Engineer &amp; Systems Administrator</p>
+                <div class="resume-contact">
+                    <a href="mailto:benjaminstef@gmail.com">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        benjaminstef@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/bstef/" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.2v-5.569c0-1.327-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.064V9h3.112v1.561h.044c.434-.823 1.493-1.69 3.07-1.69 3.283 0 3.889 2.16 3.889 4.971v6.61zM5.337 7.433a1.81 1.81 0 1 1 0-3.62 1.81 1.81 0 0 1 0 3.62zM6.927 20.452H3.746V9h3.181v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.727v20.545C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.273V1.727C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        linkedin.com/in/bstef
+                    </a>
+                    <a href="https://github.com/bstef" target="_blank">
+                        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                        github.com/bstef
+                    </a>
+                    <span>
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        Little Falls, NJ
+                    </span>
+                </div>
+            </div>
+
+            <div class="resume-body">
+
+                <div class="resume-section resume-summary">
+                    <div class="section-heading">Professional Summary</div>
+                    <p>Senior Systems Administrator and Support Engineer with over 19 years of experience in systems and application support, diagnostics, and infrastructure management. Proven expertise in e-Discovery platforms, observability tools, and cloud technologies. Strong technical acumen with ability to rapidly learn new systems, coupled with excellent documentation skills and customer-focused approach. Experienced in working with cross-functional teams, managing complex technical environments, and delivering strategic solutions for enterprise-scale deployments.</p>
+                </div>
+
+                <div class="resume-section">
+                    <div class="section-heading">Professional Experience</div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <span class="job-company">JP Morgan Chase</span>
+                            <span class="job-date">May 2024 – Present</span>
+                        </div>
+                        <div class="job-title">Senior Infrastructure Engineer</div>
+                        <ul>
+                            <li>Support Employee Platforms division maintaining communication and collaboration platforms for ~340k employees</li>
+                            <li>Implement solutions for Zoom, Teams, Webex, and other collaboration platforms</li>
+                            <li>Write and maintain Terraform infrastructure code for AWS deployments</li>
+                            <li>Collaborate with cross-functional teams and Product Managers on requirements and solutions</li>
+                            <li>Design security-conscious implementations and maintain comprehensive documentation</li>
+                            <li>Provide architectural guidance to internal App Development team for enhanced user experience</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <span class="job-company">Datadog Inc.</span>
+                            <span class="job-date">Jan 2023 – April 2024</span>
+                        </div>
+                        <div class="job-title">Senior Technical Solutions Engineer</div>
+                        <ul>
+                            <li>Provided technical support for Datadog platform, resolving customer implementation and configuration issues</li>
+                            <li>Worked closely with engineering teams to reproduce and analyze complex technical issues</li>
+                            <li>Specialized in Datadog Agent Integrations supporting 600+ platform integrations</li>
+                            <li>Created internal sandbox environments and implementation guides for AWS, Azure, and GCP</li>
+                            <li>Developed best practices for team collaboration using industry-leading troubleshooting experience</li>
+                            <li>Wrote extensive knowledge base articles on Windows platform integrations</li>
+                            <li>Led daily team meetings providing insight on customer tickets and issues</li>
+                        </ul>
+                        <div class="job-achievement">
+                            <strong>Key Achievement:</strong> Defined and implemented best practices for team collaboration that were rolled out region-wide within the company.
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <span class="job-company">Consilio LLC</span>
+                            <span class="job-date">Jan 2020 – Dec 2022</span>
+                        </div>
+                        <div class="job-title">Application Support Engineer</div>
+                        <ul>
+                            <li>Supported e-Discovery applications including Relativity, Relativity One, Venio, and LAW</li>
+                            <li>Point of escalation for performance issues, application bottlenecks, and latency problems</li>
+                            <li>Maintained company-wide Zoom environment and domain name registration</li>
+                            <li>Assisted InfoSec with audit tasks and SOC2 compliance information gathering</li>
+                            <li>Created comprehensive internal and external documentation</li>
+                            <li>Performed regular application upgrades including BrainSpace, Venio, and Relativity</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <div class="section-heading">Technical Skills</div>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Operating Systems</h4>
+                            <p>Windows (all versions), Linux, Mac OSX, VMWare, Hyper-V</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Platforms</h4>
+                            <p>SQL, MySQL, VMware vSphere, Cisco, Network Switches</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Cloud</h4>
+                            <p>AWS, Azure, Google Cloud (GCP), Microsoft365, MaaS360, Zoom</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Monitoring</h4>
+                            <p>Datadog, Grafana, Splunk, Zabbix</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>e-Discovery</h4>
+                            <p>Relativity, Relativity One, BrainSpace, Nuix, Netezza, Venio</p>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Web Technologies</h4>
+                            <p>IIS, Apache, WordPress, Google Apps, Drupal, Squarespace</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <div class="section-heading">Education &amp; Certifications</div>
+                    <div class="edu-grid">
+                        <div class="edu-block">
+                            <h3>University of Illinois at Chicago</h3>
+                            <p><strong>Bachelor of Science in Electrical Engineering</strong></p>
+                            <p>Minor in Economics</p>
+                        </div>
+                        <div class="edu-block">
+                            <h3>Professional Certifications</h3>
+                            <ul>
+                                <li>CCNA</li>
+                                <li>Brent Ozar SQL Performance</li>
+                                <li>Brainspace Certified Admin</li>
+                                <li>DELL Storage – Equallogic Storage Architect</li>
+                                <li>DELL Storage – Compellent Storage Architect</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="achievement-box">
+                        <h4>🏆 First Place — UIC College of Engineering EXPO 2007</h4>
+                        <p>Category 9: User Interface and Education &nbsp;·&nbsp; <em>"TypeMouse: Fully Functional Keyboard and Mouse in a Single-Handed Device"</em></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

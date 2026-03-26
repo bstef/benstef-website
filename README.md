@@ -21,6 +21,7 @@ Personal resume site for Ben Stef, Senior Infrastructure Engineer. Built with pl
 
 ```
 index.html                  # Primary production page
+resume.html                 # Expanded resume page (with PDF download button)
 resume/                     # Resume PDF
   Ben Stef Resume.pdf
 assets/                     # Images and icons
