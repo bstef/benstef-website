@@ -10,7 +10,7 @@ Personal resume site for Ben Stef, Senior Infrastructure Engineer. Built with pl
 
 - Hero banner with NYC skyline background and glassmorphism contact buttons
 - GitHub, LinkedIn, Resume PDF, and Website links in the hero
-- Projects section spotlighting [ZoomMCP](https://github.com/bstef/zoommcp) — an open-source MCP server for the Zoom API
+- Projects section spotlighting [ZoomMCP](https://github.com/bstef/zoommcp) — an open-source MCP server for the Zoom API, with links to the repo and [LinkedIn article](https://www.linkedin.com/pulse/i-built-tool-lets-claude-ai-control-your-zoom-so-you-never-ben-stef-yudve/)
 - Sticky navigation with smooth scrolling
 - Responsive layout (mobile + desktop)
 - Circular headshot favicon (16/32/48px ICO + 180px PNG for Apple touch)
