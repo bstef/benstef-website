@@ -1,4 +1,4 @@
-# Ben Stef — Resume & Portfolio Site
+# Ben Stef — Resume Site
 
 Personal resume site for Ben Stef, Senior Infrastructure Engineer. Built with plain HTML and CSS — no frameworks, no build step, deployable anywhere.
 
