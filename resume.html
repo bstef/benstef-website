@@ -14,16 +14,90 @@
             box-sizing: border-box;
         }
 
+        :root {
+            color-scheme: light;
+            --bg: #f4f6f8;
+            --surface: #ffffff;
+            --surface-strong: #f8f9fa;
+            --text: #333333;
+            --muted: #555555;
+            --heading: #2c3e50;
+            --subheading: #34495e;
+            --accent: #3498db;
+            --border: #dfe4eb;
+            --topbar-bg: #2c3e50;
+            --topbar-text: #ffffff;
+            --topbar-link: rgba(255,255,255,0.75);
+            --topbar-link-hover: #ffffff;
+            --button-bg: #3498db;
+            --button-text: #ffffff;
+            --button-hover: #2980b9;
+            --card-bg: #ffffff;
+            --header-bg: #2c3e50;
+            --header-heading: #ffffff;
+            --header-subtext: rgba(255,255,255,0.8);
+            --header-text: rgba(255,255,255,0.85);
+            --section-heading: #3498db;
+            --job-company: #2c3e50;
+            --job-date: #7f8c8d;
+            --job-title: #3498db;
+            --job-text: #555555;
+            --achievement-bg: #f8f9fa;
+            --achievement-border: #3498db;
+            --skill-bg: #f8f9fa;
+            --edu-heading: #2c3e50;
+            --edu-text: #555555;
+            --achievement-box-bg: #f8f9fa;
+            --achievement-box-border: #f39c12;
+        }
+
+        [data-theme="dark"] {
+            color-scheme: dark;
+            --bg: #0d1520;
+            --surface: #131f2f;
+            --surface-strong: #172a3b;
+            --text: #e8eef4;
+            --muted: #a3b1c1;
+            --heading: #f4f7fb;
+            --subheading: #d7e1f0;
+            --accent: #66b0ff;
+            --border: #274159;
+            --topbar-bg: #0f1a2b;
+            --topbar-text: #f4f7fb;
+            --topbar-link: rgba(255,255,255,0.75);
+            --topbar-link-hover: #ffffff;
+            --button-bg: #66b0ff;
+            --button-text: #0f1720;
+            --button-hover: #95c0ff;
+            --card-bg: #122035;
+            --header-bg: #0f1a2d;
+            --header-heading: #f4f7fb;
+            --header-subtext: rgba(255,255,255,0.75);
+            --header-text: rgba(255,255,255,0.85);
+            --section-heading: #66b0ff;
+            --job-company: #f4f7fb;
+            --job-date: #a3b1c1;
+            --job-title: #66b0ff;
+            --job-text: #c7d2e1;
+            --achievement-bg: #14243b;
+            --achievement-border: #66b0ff;
+            --skill-bg: #14243b;
+            --edu-heading: #f4f7fb;
+            --edu-text: #c7d2e1;
+            --achievement-box-bg: #14243b;
+            --achievement-box-border: #ffaa66;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f4f6f8;
+            background: var(--bg);
+            color: var(--text);
         }
 
         /* Top bar */
         .topbar {
-            background: #2c3e50;
+            background: var(--topbar-bg);
             padding: 14px 24px;
             display: flex;
             align-items: center;
@@ -43,7 +117,7 @@
         }
 
         .topbar a.back {
-            color: rgba(255,255,255,0.75);
+            color: var(--topbar-link);
             text-decoration: none;
             font-size: 0.9rem;
             display: flex;
@@ -53,11 +127,11 @@
         }
 
         .topbar a.back:hover {
-            color: white;
+            color: var(--topbar-link-hover);
         }
 
         .topbar-title {
-            color: white;
+            color: var(--topbar-text);
             font-weight: 600;
             font-size: 1rem;
         }
@@ -76,18 +150,18 @@
             font-weight: 600;
             font-size: 0.875rem;
             text-decoration: none;
-            transition: background 0.2s, transform 0.15s;
+            transition: background 0.2s, transform 0.15s, color 0.2s;
             cursor: pointer;
             border: none;
         }
 
         .btn-primary {
-            background: #3498db;
-            color: white;
+            background: var(--button-bg);
+            color: var(--button-text);
         }
 
         .btn-primary:hover {
-            background: #2980b9;
+            background: var(--button-hover);
             transform: translateY(-1px);
         }
 
@@ -106,7 +180,7 @@
         }
 
         .resume-card {
-            background: white;
+            background: var(--card-bg);
             border-radius: 12px;
             box-shadow: 0 4px 24px rgba(0,0,0,0.08);
             overflow: hidden;
@@ -114,8 +188,8 @@
 
         /* Resume header */
         .resume-header {
-            background: #2c3e50;
-            color: white;
+            background: var(--header-bg);
+            color: var(--header-text);
             padding: 40px 48px 36px;
             display: flex;
             align-items: center;
@@ -145,12 +219,13 @@
             font-weight: 700;
             letter-spacing: -0.5px;
             margin-bottom: 4px;
+            color: var(--header-heading);
         }
 
         .resume-header .resume-title {
             font-size: 1.1rem;
             font-weight: 300;
-            color: rgba(255,255,255,0.8);
+            color: var(--header-subtext);
             margin-bottom: 20px;
         }
 
@@ -163,7 +238,7 @@
 
         .resume-contact a,
         .resume-contact span {
-            color: rgba(255,255,255,0.85);
+            color: var(--header-text);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -200,10 +275,10 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #3498db;
+            color: var(--section-heading);
             margin-bottom: 14px;
             padding-bottom: 8px;
-            border-bottom: 2px solid #e8f4fd;
+            border-bottom: 2px solid rgba(52, 152, 219, 0.16);
         }
 
         /* Summary */
@@ -237,12 +312,12 @@
         .job-company {
             font-size: 1.05rem;
             font-weight: 700;
-            color: #2c3e50;
+            color: var(--job-company);
         }
 
         .job-date {
             font-size: 0.82rem;
-            color: #7f8c8d;
+            color: var(--job-date);
             font-style: italic;
             white-space: nowrap;
         }
@@ -250,7 +325,7 @@
         .job-title {
             font-size: 0.9rem;
             font-weight: 600;
-            color: #3498db;
+            color: var(--job-title);
             margin-bottom: 10px;
         }
 
@@ -260,22 +335,22 @@
 
         .job li {
             font-size: 0.9rem;
-            color: #555;
+            color: var(--job-text);
             margin-bottom: 6px;
         }
 
         .job-achievement {
             margin-top: 12px;
-            background: #f8f9fa;
-            border-left: 3px solid #3498db;
+            background: var(--achievement-bg);
+            border-left: 3px solid var(--achievement-border);
             padding: 10px 14px;
             border-radius: 0 6px 6px 0;
             font-size: 0.875rem;
-            color: #555;
+            color: var(--job-text);
         }
 
         .job-achievement strong {
-            color: #2c3e50;
+            color: var(--job-company);
         }
 
         /* Skills grid */
@@ -286,10 +361,10 @@
         }
 
         .skill-category {
-            background: #f8f9fa;
+            background: var(--skill-bg);
             padding: 14px 16px;
             border-radius: 8px;
-            border-left: 3px solid #3498db;
+            border-left: 3px solid var(--accent);
         }
 
         .skill-category h4 {
@@ -297,13 +372,13 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            color: #2c3e50;
+            color: var(--heading);
             margin-bottom: 6px;
         }
 
         .skill-category p {
             font-size: 0.875rem;
-            color: #555;
+            color: var(--job-text);
         }
 
         /* Two-column layout for education */
@@ -316,13 +391,13 @@
         .edu-block h3 {
             font-size: 0.95rem;
             font-weight: 700;
-            color: #2c3e50;
+            color: var(--edu-heading);
             margin-bottom: 4px;
         }
 
         .edu-block p, .edu-block li {
             font-size: 0.875rem;
-            color: #555;
+            color: var(--edu-text);
         }
 
         .edu-block ul {
@@ -336,8 +411,8 @@
 
         .achievement-box {
             margin-top: 20px;
-            background: #f8f9fa;
-            border-left: 3px solid #f39c12;
+            background: var(--achievement-box-bg);
+            border-left: 3px solid var(--achievement-box-border);
             padding: 12px 16px;
             border-radius: 0 8px 8px 0;
         }
@@ -345,13 +420,13 @@
         .achievement-box h4 {
             font-size: 0.85rem;
             font-weight: 700;
-            color: #2c3e50;
+            color: var(--heading);
             margin-bottom: 4px;
         }
 
         .achievement-box p {
             font-size: 0.85rem;
-            color: #555;
+            color: var(--job-text);
         }
 
         /* Print styles */
@@ -386,6 +461,7 @@
                 <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
                 Download PDF
             </a>
+            <button id="theme-toggle" class="btn btn-primary" type="button">Dark Mode</button>
         </div>
     </div>
 
@@ -629,5 +705,30 @@
         </div>
     </div>
 
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const rootElement = document.documentElement;
+        const savedTheme = localStorage.getItem('resume-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                rootElement.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = 'Light Mode';
+            } else {
+                rootElement.removeAttribute('data-theme');
+                themeToggle.textContent = 'Dark Mode';
+            }
+        }
+
+        const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+        applyTheme(initialTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const nextTheme = rootElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            applyTheme(nextTheme);
+            localStorage.setItem('resume-theme', nextTheme);
+        });
+    </script>
 </body>
 </html>
