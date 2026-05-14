@@ -14,10 +14,57 @@
             box-sizing: border-box;
         }
 
+        :root {
+            color-scheme: light;
+            --bg: #ffffff;
+            --surface: #f8f9fa;
+            --surface-strong: #ffffff;
+            --text: #333333;
+            --muted: #555555;
+            --heading: #2c3e50;
+            --subheading: #34495e;
+            --border: #dcdfe2;
+            --nav-bg: #2c3e50;
+            --nav-text: #ffffff;
+            --link: #3498db;
+            --link-hover: #5dade2;
+            --footer-bg: #2c3e50;
+            --footer-text: rgba(255,255,255,0.75);
+            --footer-link: rgba(255,255,255,0.8);
+            --footer-link-hover: #3498db;
+            --header-overlay: rgba(0, 0, 0, 0.5);
+            --button-bg: rgba(255, 255, 255, 0.15);
+            --button-border: rgba(255, 255, 255, 0.25);
+        }
+
+        [data-theme="dark"] {
+            color-scheme: dark;
+            --bg: #0f1720;
+            --surface: #131c2b;
+            --surface-strong: #172733;
+            --text: #e8eef4;
+            --muted: #a8b3c0;
+            --heading: #f4f7fb;
+            --subheading: #d8e2f1;
+            --border: #274159;
+            --nav-bg: #111b28;
+            --nav-text: #f4f7fb;
+            --link: #66b0ff;
+            --link-hover: #93c6ff;
+            --footer-bg: #0d1520;
+            --footer-text: rgba(255,255,255,0.72);
+            --footer-link: rgba(255,255,255,0.8);
+            --footer-link-hover: #66b0ff;
+            --header-overlay: rgba(0, 0, 0, 0.55);
+            --button-bg: rgba(255, 255, 255, 0.08);
+            --button-border: rgba(255, 255, 255, 0.18);
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #333;
+            background: var(--bg);
+            color: var(--text);
         }
 
         /* Header with NYC Skyline Background */
@@ -124,7 +171,7 @@
 
         /* Navigation */
         nav {
-            background: #2c3e50;
+            background: var(--nav-bg);
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -141,15 +188,26 @@
             padding: 0 20px;
         }
 
-        nav a {
-            color: white;
+        nav a,
+        nav button {
+            color: var(--nav-text);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.3s, background 0.2s, border-color 0.2s;
         }
 
-        nav a:hover {
-            color: #3498db;
+        nav button {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 999px;
+            padding: 8px 14px;
+            cursor: pointer;
+        }
+
+        nav a:hover,
+        nav button:hover {
+            color: var(--link-hover);
+            background: rgba(255,255,255,0.08);
         }
 
         /* Main Content */
@@ -164,21 +222,21 @@
         }
 
         h2 {
-            color: #2c3e50;
+            color: var(--heading);
             font-size: 2rem;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 3px solid #3498db;
+            border-bottom: 3px solid var(--link);
         }
 
         h3 {
-            color: #34495e;
+            color: var(--subheading);
             margin-top: 30px;
             margin-bottom: 10px;
         }
 
         h4 {
-            color: #7f8c8d;
+            color: var(--muted);
             margin-top: 20px;
             margin-bottom: 10px;
         }
@@ -214,16 +272,16 @@
         }
 
         .skill-category {
-            background: #f8f9fa;
+            background: var(--surface);
             padding: 20px;
             border-radius: 8px;
-            border-left: 4px solid #3498db;
+            border-left: 4px solid var(--link);
         }
 
         .project-card {
-            background: #f8f9fa;
+            background: var(--surface);
             border-radius: 10px;
-            border-left: 4px solid #3498db;
+            border-left: 4px solid var(--link);
             padding: 24px 28px;
             display: flex;
             flex-direction: column;
@@ -240,12 +298,12 @@
         .project-card-header h3 {
             margin: 0;
             font-size: 1.3rem;
-            color: #2c3e50;
+            color: var(--heading);
         }
 
         .project-badge {
             display: inline-block;
-            background: #3498db;
+            background: var(--link);
             color: white;
             font-size: 0.75rem;
             font-weight: 600;
@@ -255,7 +313,7 @@
         }
 
         .project-card p {
-            color: #555;
+            color: var(--muted);
             margin: 0;
         }
 
@@ -266,7 +324,7 @@
         }
 
         .project-tag {
-            background: #e8f4fd;
+            background: rgba(52, 152, 219, 0.12);
             color: #2980b9;
             font-size: 0.8rem;
             font-weight: 500;
@@ -284,20 +342,21 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: #2c3e50;
+            color: var(--subheading);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
             padding: 7px 16px;
-            border: 1.5px solid #bdc3c7;
+            border: 1.5px solid var(--border);
             border-radius: 999px;
+            background: var(--surface-strong);
             transition: border-color 0.2s, color 0.2s, background 0.2s;
         }
 
         .project-links a:hover {
-            border-color: #3498db;
-            color: #3498db;
-            background: #f0f8ff;
+            border-color: var(--link);
+            color: var(--link);
+            background: var(--surface);
         }
 
         .project-links a .icon {
@@ -307,8 +366,8 @@
         }
 
         footer {
-            background: #2c3e50;
-            color: rgba(255,255,255,0.75);
+            background: var(--footer-bg);
+            color: var(--footer-text);
             padding: 36px 20px 24px;
             margin-top: 50px;
         }
@@ -327,7 +386,7 @@
         }
 
         footer a {
-            color: rgba(255,255,255,0.8);
+            color: var(--footer-link);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -337,7 +396,7 @@
         }
 
         footer a:hover {
-            color: #3498db;
+            color: var(--footer-link-hover);
         }
 
         footer a .icon {
@@ -360,16 +419,16 @@
             flex-wrap: wrap;
             gap: 8px;
             font-size: 0.8rem;
-            color: rgba(255,255,255,0.45);
+            color: var(--footer-text);
         }
 
         .footer-bottom a {
-            color: rgba(255,255,255,0.45);
+            color: var(--footer-link);
             font-size: 0.8rem;
         }
 
         .footer-bottom a:hover {
-            color: rgba(255,255,255,0.7);
+            color: var(--footer-link-hover);
         }
 
         @media (max-width: 768px) {
@@ -433,6 +492,7 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="https://blog.benstef.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
+            <li><button id="theme-toggle" type="button">Dark Mode</button></li>
         </ul>
     </nav>
 
@@ -724,6 +784,31 @@
                     });
                 }
             });
+        });
+
+        const themeToggle = document.getElementById('theme-toggle');
+        const rootElement = document.documentElement;
+
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                rootElement.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = 'Light Mode';
+            } else {
+                rootElement.removeAttribute('data-theme');
+                themeToggle.textContent = 'Dark Mode';
+            }
+        }
+
+        const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+        applyTheme(initialTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const nextTheme = rootElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            applyTheme(nextTheme);
+            localStorage.setItem('theme', nextTheme);
         });
     </script>
 </body>
