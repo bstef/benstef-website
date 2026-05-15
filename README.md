@@ -15,6 +15,7 @@ Personal resume site for Ben Stef, Senior Infrastructure Engineer. Built with pl
 - Projects section spotlighting [ZoomMCP](https://github.com/bstef/zoommcp) — an open-source MCP server for the Zoom API, with links to the repo and [LinkedIn article](https://www.linkedin.com/pulse/i-built-tool-lets-claude-ai-control-your-zoom-so-you-never-ben-stef-yudve/)
 - Sticky navigation with smooth scrolling
 - Responsive layout (mobile + desktop)
+- Dark mode support for homepage and resume page
 - Circular headshot favicon (16/32/48px ICO + 180px PNG for Apple touch)
 
 ## Structure
@@ -56,6 +57,12 @@ Static files — host anywhere:
 ```
 
 ## Recent Changes
+
+**May 2026**
+- Added dark mode view to the homepage and resume page
+- Updated experience section to combine companies acquired through mergers and acquisitions
+- Updated navigation and footer blog links; removed ZillowMCP footer link
+- Refreshed README project title and site documentation
 
 **March 2026**
 - Added GitHub profile button to hero header
