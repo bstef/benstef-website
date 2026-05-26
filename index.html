@@ -35,6 +35,8 @@
             --header-overlay: rgba(0, 0, 0, 0.5);
             --button-bg: rgba(255, 255, 255, 0.15);
             --button-border: rgba(255, 255, 255, 0.25);
+            --job-title: #1a7a5e;
+            --job-date: #5a7a72;
         }
 
         [data-theme="dark"] {
@@ -58,6 +60,8 @@
             --header-overlay: rgba(0, 0, 0, 0.55);
             --button-bg: rgba(255, 255, 255, 0.08);
             --button-border: rgba(255, 255, 255, 0.18);
+            --job-title: #2dd4bf;
+            --job-date: #a78bca;
         }
 
         body {
@@ -247,11 +251,11 @@
 
         .job-title {
             font-weight: 600;
-            color: #2c3e50;
+            color: var(--job-title);
         }
 
         .job-date {
-            color: #7f8c8d;
+            color: var(--job-date);
             font-style: italic;
         }
 
@@ -363,6 +367,22 @@
             width: 16px;
             height: 16px;
             fill: currentColor;
+        }
+
+        .project-date {
+            font-size: 0.8rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: -4px;
+        }
+
+        .project-date svg {
+            width: 13px;
+            height: 13px;
+            fill: currentColor;
+            flex-shrink: 0;
         }
 
         footer {
@@ -489,7 +509,7 @@
             <li><a href="#expertise">Expertise</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="/projects.html">Projects</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="https://blog.benstef.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
             <li><button id="theme-toggle" type="button">Dark Mode</button></li>
@@ -583,7 +603,7 @@
             <div class="job">
                 <h3>Datadog, Inc. — New York, NY</h3>
                 <p class="job-title">Senior Technical Solutions Engineer</p>
-                <p class="job-date">Jan 2023 – Apr 2024</p>
+                <p class="job-date">January 2023 – April 2024</p>
                 <ul>
                     <li>Served as senior escalation point, collaborating closely with engineering teams to reproduce and resolve complex customer-reported issues across 600+ Datadog integrations</li>
                     <li>Specialized in the Agent Integrations team, supporting integrations across infrastructure, cloud, web, metrics, and monitoring domains</li>
@@ -599,7 +619,7 @@
             <div class="job">
                 <h3>Consilio LLC / Inventus LLC — New York, NY</h3>
                 <p class="job-title">Systems Engineer — e-Discovery / Application Support Engineer</p>
-                <p class="job-date">Aug 2018 – Dec 2022</p>
+                <p class="job-date">August 2018 – December 2022</p>
                 <ul>
                     <li>Served as primary escalation point for application issues including latency, performance bottlenecks, and application hang-ups in Relativity, Relativity One, Venio, and LAW</li>
                     <li>Managed and administered the company-wide Zoom environment, establishing and enforcing policies</li>
@@ -620,7 +640,7 @@
             <div class="job">
                 <h3>George Jon &amp; Associates, Inc. — Chicago, IL</h3>
                 <p class="job-title">Technical Advisor &amp; Systems Engineer / System Analyst 3</p>
-                <p class="job-date">Nov 2013 – Jul 2018</p>
+                <p class="job-date">November 2013 – July 2018</p>
                 <ul>
                     <li>Served as primary engineer for multiple client environments, managing all infrastructure, hardware, and licensing documentation</li>
                     <li>Provided subject matter expertise (SME) on e-Discovery infrastructure to clients across the legal and financial sectors</li>
@@ -646,7 +666,7 @@
             <div class="job">
                 <h3>Quest Software / Dell Software — Buffalo Grove, IL</h3>
                 <p class="job-title">QA Analyst / Software QA Associate 2</p>
-                <p class="job-date">Mar 2009 – Oct 2013</p>
+                <p class="job-date">March 2009 – October 2013</p>
                 <ul>
                     <li>Built and maintained VMware environments with multiple ESX/ESXi hosts, vCenters, and VM templates across iSCSI, Fiber, and SAS configurations</li>
                     <li>Created MS Exchange, Active Directory, SQL, and Hyper-V virtual environments for application testing</li>
@@ -663,7 +683,7 @@
             <div class="job">
                 <h3>Novarra — Itasca, IL</h3>
                 <p class="job-title">QA Engineer &amp; Deployment Engineer</p>
-                <p class="job-date">May 2007 – Dec 2008</p>
+                <p class="job-date">May 2007 – December 2008</p>
                 <ul>
                     <li>Finalized software requirements and test plans based on customer specifications; traveled on-site to assess environments and validate deployments</li>
                     <li>Installed and configured proprietary software on blade servers (Tomcat) for performance and load testing on Linux</li>
@@ -675,7 +695,7 @@
             <div class="job">
                 <h3>UIC College of Pharmacy — Chicago, IL</h3>
                 <p class="job-title">Computer Specialist</p>
-                <p class="job-date">Jan 2003 – Feb 2006</p>
+                <p class="job-date">January 2003 – February 2006</p>
                 <ul>
                     <li>Provided helpdesk support for pharmacy faculty and students, troubleshooting hardware, network, and software issues</li>
                     <li>Maintained user accounts, installed network software, and repaired/installed PCs</li>
@@ -691,6 +711,10 @@
                     <h3>ZoomMCP</h3>
                     <span class="project-badge">Open Source</span>
                 </div>
+                <p class="project-date">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.9 4 3 4.9 3 6v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                    March 2026
+                </p>
                 <p>A Model Context Protocol (MCP) server for the Zoom API, enabling AI assistants like Claude to interact directly with Zoom — managing meetings, participants, recordings, and more through natural language. Built to bridge enterprise communication platforms with the emerging AI agent ecosystem.</p>
                 <div class="project-tags">
                     <span class="project-tag">MCP</span>
@@ -712,6 +736,18 @@
                         </svg>
                         Read the Article
                     </a>
+                    <a href="https://blog.benstef.com/claude-ai-zoom-automation-building-an-ai-meeting-agent" target="_blank">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                        </svg>
+                        Blog Post
+                    </a>
+                    <a href="/projects.html#zoommcp">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/>
+                        </svg>
+                        Learn More
+                    </a>
                 </div>
             </div>
             <div class="project-card" style="margin-top: 20px;">
@@ -719,6 +755,10 @@
                     <h3>Culture Hub</h3>
                     <span class="project-badge">Open Source</span>
                 </div>
+                <p class="project-date">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.9 4 3 4.9 3 6v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                    May 2026
+                </p>
                 <p>A platform for discovering and preserving cultural events so they don't disappear into the void. Built to surface community happenings and keep a record of the rich cultural life happening around us.</p>
                 <div class="project-tags">
                     <span class="project-tag">Culture</span>
@@ -739,6 +779,18 @@
                         </svg>
                         Read the Article
                     </a>
+                    <a href="https://blog.benstef.com/culturehub-i-built-a-zero-server-team-culture-tracker-with-vanilla-html-css-js" target="_blank">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                        </svg>
+                        Blog Post
+                    </a>
+                    <a href="/projects.html#culturehub">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/>
+                        </svg>
+                        Learn More
+                    </a>
                 </div>
             </div>
 
@@ -747,6 +799,10 @@
                     <h3>Electricity Data</h3>
                     <span class="project-badge">Open Source</span>
                 </div>
+                <p class="project-date">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.9 4 3 4.9 3 6v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                    May 2026
+                </p>
                 <p>A data visualization project exploring household electricity usage — proving that the data you already own can tell a compelling story if you know how to look at it. Built to make personal energy data accessible and meaningful.</p>
                 <div class="project-tags">
                     <span class="project-tag">Data Visualization</span>
@@ -766,6 +822,18 @@
                             <path d="M20.447 20.452H17.2v-5.569c0-1.327-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.064V9h3.112v1.561h.044c.434-.823 1.493-1.69 3.07-1.69 3.283 0 3.889 2.16 3.889 4.971v6.61zM5.337 7.433a1.81 1.81 0 1 1 0-3.62 1.81 1.81 0 0 1 0 3.62zM6.927 20.452H3.746V9h3.181v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.727v20.545C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.273V1.727C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
                         Read the Article
+                    </a>
+                    <a href="https://blog.benstef.com/i-built-a-self-updating-electricity-dashboard-from-gmail-notifications-here-s-how-it-got-messy" target="_blank">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                        </svg>
+                        Blog Post
+                    </a>
+                    <a href="/projects.html#electricity">
+                        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8-8-8z"/>
+                        </svg>
+                        Learn More
                     </a>
                 </div>
             </div>
