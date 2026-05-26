@@ -65,9 +65,36 @@
 
         /* Page header */
         .page-header {
-            background: var(--nav-bg);
-            padding: 48px 20px 40px;
+            position: relative;
+            overflow: hidden;
             text-align: center;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .page-header-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10,20,35,0.72) 0%, rgba(10,20,35,0.55) 100%);
+            z-index: 1;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+            padding: 52px 20px 48px;
         }
 
         .page-header h1 {
@@ -75,13 +102,15 @@
             color: #ffffff;
             font-weight: 700;
             margin-bottom: 10px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
 
         .page-header p {
-            color: rgba(255,255,255,0.72);
+            color: rgba(255,255,255,0.8);
             font-size: 1.1rem;
             max-width: 560px;
             margin: 0 auto;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.4);
         }
 
         /* Nav */
@@ -351,8 +380,165 @@
     </nav>
 
     <div class="page-header">
-        <h1>Projects</h1>
-        <p>Side projects I've built at the intersection of automation, data, and things that matter to me.</p>
+        <!-- Hero SVG: combines all three project themes -->
+        <svg class="page-hero-bg" viewBox="0 0 1400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+                <linearGradient id="heroBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#0a1420"/>
+                    <stop offset="40%" style="stop-color:#0f1e30"/>
+                    <stop offset="100%" style="stop-color:#0a1420"/>
+                </linearGradient>
+                <linearGradient id="chartGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#2dd4bf;stop-opacity:0.5"/>
+                    <stop offset="100%" style="stop-color:#34d399;stop-opacity:1"/>
+                </linearGradient>
+                <filter id="glow2">
+                    <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+            </defs>
+
+            <!-- Background -->
+            <rect width="1400" height="280" fill="url(#heroBg)"/>
+
+            <!-- Subtle grid -->
+            <g stroke="rgba(255,255,255,0.035)" stroke-width="1">
+                <line x1="0" y1="70" x2="1400" y2="70"/>
+                <line x1="0" y1="140" x2="1400" y2="140"/>
+                <line x1="0" y1="210" x2="1400" y2="210"/>
+                <line x1="200" y1="0" x2="200" y2="280"/>
+                <line x1="400" y1="0" x2="400" y2="280"/>
+                <line x1="600" y1="0" x2="600" y2="280"/>
+                <line x1="800" y1="0" x2="800" y2="280"/>
+                <line x1="1000" y1="0" x2="1000" y2="280"/>
+                <line x1="1200" y1="0" x2="1200" y2="280"/>
+            </g>
+
+            <!-- ── LEFT: Neural network / ZoomMCP ── -->
+            <g filter="url(#glow2)">
+                <!-- Layer 1 -->
+                <circle cx="60"  cy="80"  r="9" fill="rgba(100,180,255,0.85)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                <circle cx="60"  cy="140" r="9" fill="rgba(100,180,255,0.85)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                <circle cx="60"  cy="200" r="9" fill="rgba(100,180,255,0.85)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                <!-- Layer 2 -->
+                <circle cx="155" cy="105" r="9" fill="rgba(130,200,255,0.85)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                <circle cx="155" cy="175" r="9" fill="rgba(130,200,255,0.85)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                <!-- Layer 3 -->
+                <circle cx="250" cy="140" r="11" fill="rgba(160,220,255,0.9)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            </g>
+            <!-- NN connections -->
+            <g stroke="rgba(100,180,255,0.28)" stroke-width="1.5">
+                <line x1="69"  y1="80"  x2="146" y2="105"/>
+                <line x1="69"  y1="80"  x2="146" y2="175"/>
+                <line x1="69"  y1="140" x2="146" y2="105"/>
+                <line x1="69"  y1="140" x2="146" y2="175"/>
+                <line x1="69"  y1="200" x2="146" y2="105"/>
+                <line x1="69"  y1="200" x2="146" y2="175"/>
+                <line x1="164" y1="105" x2="239" y2="140"/>
+                <line x1="164" y1="175" x2="239" y2="140"/>
+            </g>
+            <!-- Zoom camera icon -->
+            <g transform="translate(280, 95)" opacity="0.75">
+                <rect x="0" y="10" width="80" height="60" rx="8" fill="rgba(41,182,246,0.18)" stroke="rgba(41,182,246,0.6)" stroke-width="2"/>
+                <circle cx="40" cy="40" r="20" fill="rgba(41,182,246,0.1)" stroke="rgba(41,182,246,0.6)" stroke-width="2"/>
+                <circle cx="40" cy="40" r="11" fill="rgba(41,182,246,0.25)" stroke="rgba(41,182,246,0.4)" stroke-width="1.5"/>
+                <polygon points="80,22 106,38 80,54" fill="rgba(41,182,246,0.45)" stroke="rgba(41,182,246,0.6)" stroke-width="1.5"/>
+                <circle cx="12" cy="22" r="5" fill="rgba(255,70,70,0.8)"/>
+            </g>
+            <!-- Flow arrow right -->
+            <line x1="390" y1="140" x2="470" y2="140" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" stroke-dasharray="7,5"/>
+            <polygon points="468,134 480,140 468,146" fill="rgba(255,255,255,0.3)"/>
+
+            <!-- ── CENTER: Calendar / Culture Hub ── -->
+            <g transform="translate(490, 60)">
+                <rect x="0" y="0" width="140" height="140" rx="10" fill="rgba(160,40,60,0.2)" stroke="rgba(220,100,110,0.45)" stroke-width="2"/>
+                <rect x="0" y="0" width="140" height="34" rx="10" fill="rgba(200,60,70,0.35)"/>
+                <rect x="0" y="22" width="140" height="12" fill="rgba(200,60,70,0.35)"/>
+                <!-- Rings -->
+                <rect x="34" y="-9" width="9" height="20" rx="4.5" fill="rgba(240,160,160,0.55)"/>
+                <rect x="97" y="-9" width="9" height="20" rx="4.5" fill="rgba(240,160,160,0.55)"/>
+                <!-- Day grid -->
+                <g fill="rgba(255,255,255,0.55)" font-family="monospace" font-size="12" text-anchor="middle">
+                    <text x="24"  y="62">6</text><text x="52" y="62">7</text><text x="80" y="62">8</text><text x="108" y="62">9</text>
+                    <text x="24"  y="84">13</text><text x="52" y="84">14</text><text x="80" y="84">15</text><text x="108" y="84">16</text>
+                    <text x="24" y="106">20</text><text x="52" y="106">21</text>
+                </g>
+                <!-- Highlighted event day -->
+                <circle cx="108" cy="100" r="13" fill="rgba(220,70,80,0.65)" stroke="rgba(255,150,160,0.6)" stroke-width="1.5"/>
+                <text x="108" y="105" font-family="monospace" font-size="12" fill="white" text-anchor="middle" font-weight="bold">22</text>
+            </g>
+            <!-- Music note -->
+            <g transform="translate(643, 82)" fill="rgba(255,150,160,0.55)">
+                <ellipse cx="11" cy="32" rx="10" ry="7"/>
+                <rect x="19" y="5" width="3" height="27"/>
+                <ellipse cx="37" cy="27" rx="10" ry="7"/>
+                <rect x="45" y="0" width="3" height="27"/>
+                <line x1="19" y1="5" x2="48" y2="0" stroke="rgba(255,150,160,0.55)" stroke-width="3"/>
+            </g>
+            <!-- Pin / location -->
+            <g transform="translate(650, 152)" opacity="0.6">
+                <path d="M18 0 C8 0 0 8 0 18 C0 28 18 50 18 50 C18 50 36 28 36 18 C36 8 28 0 18 0Z" fill="rgba(255,120,100,0.4)" stroke="rgba(255,170,150,0.55)" stroke-width="1.5"/>
+                <circle cx="18" cy="18" r="8" fill="rgba(255,120,100,0.5)"/>
+            </g>
+            <!-- Flow arrow right -->
+            <line x1="700" y1="140" x2="780" y2="140" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" stroke-dasharray="7,5"/>
+            <polygon points="778,134 790,140 778,146" fill="rgba(255,255,255,0.3)"/>
+
+            <!-- ── RIGHT: Data chart / Electricity ── -->
+            <!-- Chart area fill -->
+            <path d="M 810 220 L 870 190 L 930 200 L 990 160 L 1050 175 L 1110 125 L 1170 145 L 1230 100 L 1290 115 L 1350 80 L 1350 240 L 810 240 Z"
+                  fill="rgba(45,212,191,0.1)"/>
+            <!-- Chart line -->
+            <polyline points="810,220 870,190 930,200 990,160 1050,175 1110,125 1170,145 1230,100 1290,115 1350,80"
+                      fill="none" stroke="url(#chartGrad)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+            <!-- Data points -->
+            <g fill="#2dd4bf" stroke="rgba(10,20,35,0.6)" stroke-width="2">
+                <circle cx="810"  cy="220" r="5"/>
+                <circle cx="930"  cy="200" r="5"/>
+                <circle cx="1050" cy="175" r="5"/>
+                <circle cx="1170" cy="145" r="5"/>
+                <circle cx="1290" cy="115" r="5"/>
+                <circle cx="1350" cy="80"  r="5"/>
+            </g>
+            <!-- Y-axis ticks -->
+            <g stroke="rgba(255,255,255,0.18)" stroke-width="1">
+                <line x1="805" y1="90"  x2="810" y2="90"/>
+                <line x1="805" y1="130" x2="810" y2="130"/>
+                <line x1="805" y1="170" x2="810" y2="170"/>
+                <line x1="805" y1="210" x2="810" y2="210"/>
+            </g>
+            <g font-family="monospace" font-size="9" fill="rgba(255,255,255,0.28)" text-anchor="end">
+                <text x="802" y="94">4 kWh</text>
+                <text x="802" y="134">3 kWh</text>
+                <text x="802" y="174">2 kWh</text>
+                <text x="802" y="214">1 kWh</text>
+            </g>
+            <!-- Lightning bolt -->
+            <g transform="translate(1060, 40)" opacity="0.5">
+                <polygon points="22,0 7,34 18,34 12,68 36,22 22,22 32,0" fill="#facc15"/>
+            </g>
+
+            <!-- Decorative circles -->
+            <circle cx="1380" cy="260" r="100" fill="rgba(255,255,255,0.015)"/>
+            <circle cx="1380" cy="260" r="60"  fill="rgba(255,255,255,0.02)"/>
+            <circle cx="20"   cy="20"  r="70"  fill="rgba(255,255,255,0.015)"/>
+
+            <!-- Scattered star dots -->
+            <g fill="rgba(255,255,255,0.2)">
+                <circle cx="430"  cy="30"  r="2"/>
+                <circle cx="460"  cy="50"  r="1.5"/>
+                <circle cx="740"  cy="25"  r="2"/>
+                <circle cx="760"  cy="255" r="1.5"/>
+                <circle cx="1140" cy="260" r="2"/>
+                <circle cx="400"  cy="260" r="1.5"/>
+            </g>
+        </svg>
+
+        <div class="page-header-overlay"></div>
+        <div class="page-header-content">
+            <h1>Projects</h1>
+            <p>Side projects I've built at the intersection of automation, data, and things that matter to me.</p>
+        </div>
     </div>
 
     <div class="container">
